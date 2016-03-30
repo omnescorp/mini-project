@@ -1,0 +1,4 @@
+services:
+#    m_russo_mini_project.example:
+#        class: MRusso\MiniProjectBundle\Example
+#        arguments: ["@service_id", "plain_value", %parameter%]
