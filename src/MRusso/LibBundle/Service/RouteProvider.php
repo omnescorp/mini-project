@@ -41,7 +41,7 @@ class RouteProvider extends Loader {
         $this
                 ->routeRoute()
                 //->blogRoute()
-                ->categoryRoute()
+                //->categoryRoute()
         ;
 
 //        $cacheDriver->save('prueba123', $this->routes);

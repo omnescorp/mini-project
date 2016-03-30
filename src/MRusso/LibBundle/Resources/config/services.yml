@@ -67,18 +67,6 @@ services:
     role:
         class: MRusso\LibBundle\Model\Role
         parent: db
-    category:
-        class: MRusso\LibBundle\Model\Category
-        parent: db
-    galerie:
-        class: MRusso\LibBundle\Model\Galerie
-        parent: db
-    plan:
-        class: MRusso\LibBundle\Model\Plan
-        parent: db
-    post_template:
-        class: MRusso\LibBundle\Model\PostTemplate
-        parent: db
     acl:
         class: MRusso\LibBundle\Model\Acl
         calls:
