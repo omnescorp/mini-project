@@ -22,6 +22,20 @@ class Post
     private $id;
 
     /**
+     * @var integer
+     *
+     * @ORM\Column(name="post_template_id", type="integer", nullable=false)
+     */
+    private $postTemplateId;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="post_user_id", type="integer", nullable=false)
+     */
+    private $postUserId;
+
+    /**
      * @var string
      *
      * @ORM\Column(name="post_author", type="string", length=255, nullable=false)
@@ -98,64 +112,6 @@ class Post
      */
     private $postStatus;
 
-    /**
-     * @var \MRusso\LibBundle\Entity\User
-     *
-     * @ORM\ManyToOne(targetEntity="MRusso\LibBundle\Entity\User")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="post_user_id", referencedColumnName="id")
-     * })
-     */
-    private $postUser;
-
-    /**
-     * @var \MRusso\LibBundle\Entity\PostTemplate
-     *
-     * @ORM\ManyToOne(targetEntity="MRusso\LibBundle\Entity\PostTemplate")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="post_template_id", referencedColumnName="id")
-     * })
-     */
-    private $postTemplate;
-
-    /**
-     * @var \Doctrine\Common\Collections\Collection
-     *
-     * @ORM\ManyToMany(targetEntity="MRusso\LibBundle\Entity\Category", inversedBy="post")
-     * @ORM\JoinTable(name="post_category",
-     *   joinColumns={
-     *     @ORM\JoinColumn(name="post_id", referencedColumnName="id")
-     *   },
-     *   inverseJoinColumns={
-     *     @ORM\JoinColumn(name="cate_id", referencedColumnName="id")
-     *   }
-     * )
-     */
-    private $cate;
-
-    /**
-     * @var \Doctrine\Common\Collections\Collection
-     *
-     * @ORM\ManyToMany(targetEntity="MRusso\LibBundle\Entity\Galerie", inversedBy="idPost")
-     * @ORM\JoinTable(name="post_galerie",
-     *   joinColumns={
-     *     @ORM\JoinColumn(name="id_post", referencedColumnName="id")
-     *   },
-     *   inverseJoinColumns={
-     *     @ORM\JoinColumn(name="id_galerie", referencedColumnName="id")
-     *   }
-     * )
-     */
-    private $idGalerie;
-
-    /**
-     * Constructor
-     */
-    public function __construct()
-    {
-        $this->cate = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->idGalerie = new \Doctrine\Common\Collections\ArrayCollection();
-    }
 
 
     /**
@@ -166,6 +122,54 @@ class Post
     public function getId()
     {
         return $this->id;
+    }
+
+    /**
+     * Set postTemplateId
+     *
+     * @param integer $postTemplateId
+     *
+     * @return Post
+     */
+    public function setPostTemplateId($postTemplateId)
+    {
+        $this->postTemplateId = $postTemplateId;
+
+        return $this;
+    }
+
+    /**
+     * Get postTemplateId
+     *
+     * @return integer
+     */
+    public function getPostTemplateId()
+    {
+        return $this->postTemplateId;
+    }
+
+    /**
+     * Set postUserId
+     *
+     * @param integer $postUserId
+     *
+     * @return Post
+     */
+    public function setPostUserId($postUserId)
+    {
+        $this->postUserId = $postUserId;
+
+        return $this;
+    }
+
+    /**
+     * Get postUserId
+     *
+     * @return integer
+     */
+    public function getPostUserId()
+    {
+        return $this->postUserId;
     }
 
     /**
@@ -430,121 +434,5 @@ class Post
     public function getPostStatus()
     {
         return $this->postStatus;
-    }
-
-    /**
-     * Set postUser
-     *
-     * @param \MRusso\LibBundle\Entity\User $postUser
-     *
-     * @return Post
-     */
-    public function setPostUser(\MRusso\LibBundle\Entity\User $postUser = null)
-    {
-        $this->postUser = $postUser;
-
-        return $this;
-    }
-
-    /**
-     * Get postUser
-     *
-     * @return \MRusso\LibBundle\Entity\User
-     */
-    public function getPostUser()
-    {
-        return $this->postUser;
-    }
-
-    /**
-     * Set postTemplate
-     *
-     * @param \MRusso\LibBundle\Entity\PostTemplate $postTemplate
-     *
-     * @return Post
-     */
-    public function setPostTemplate(\MRusso\LibBundle\Entity\PostTemplate $postTemplate = null)
-    {
-        $this->postTemplate = $postTemplate;
-
-        return $this;
-    }
-
-    /**
-     * Get postTemplate
-     *
-     * @return \MRusso\LibBundle\Entity\PostTemplate
-     */
-    public function getPostTemplate()
-    {
-        return $this->postTemplate;
-    }
-
-    /**
-     * Add cate
-     *
-     * @param \MRusso\LibBundle\Entity\Category $cate
-     *
-     * @return Post
-     */
-    public function addCate(\MRusso\LibBundle\Entity\Category $cate)
-    {
-        $this->cate[] = $cate;
-
-        return $this;
-    }
-
-    /**
-     * Remove cate
-     *
-     * @param \MRusso\LibBundle\Entity\Category $cate
-     */
-    public function removeCate(\MRusso\LibBundle\Entity\Category $cate)
-    {
-        $this->cate->removeElement($cate);
-    }
-
-    /**
-     * Get cate
-     *
-     * @return \Doctrine\Common\Collections\Collection
-     */
-    public function getCate()
-    {
-        return $this->cate;
-    }
-
-    /**
-     * Add idGalerie
-     *
-     * @param \MRusso\LibBundle\Entity\Galerie $idGalerie
-     *
-     * @return Post
-     */
-    public function addIdGalerie(\MRusso\LibBundle\Entity\Galerie $idGalerie)
-    {
-        $this->idGalerie[] = $idGalerie;
-
-        return $this;
-    }
-
-    /**
-     * Remove idGalerie
-     *
-     * @param \MRusso\LibBundle\Entity\Galerie $idGalerie
-     */
-    public function removeIdGalerie(\MRusso\LibBundle\Entity\Galerie $idGalerie)
-    {
-        $this->idGalerie->removeElement($idGalerie);
-    }
-
-    /**
-     * Get idGalerie
-     *
-     * @return \Doctrine\Common\Collections\Collection
-     */
-    public function getIdGalerie()
-    {
-        return $this->idGalerie;
     }
 }
