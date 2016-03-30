@@ -1,3 +1,6 @@
 app:
     resource: "@AppBundle/Controller/"
     type:     annotation
+m_russo_lib:
+    resource: "@MRussoLibBundle/Resources/config/routing.yml"
+    prefix:   /

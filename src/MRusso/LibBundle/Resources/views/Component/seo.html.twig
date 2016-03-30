@@ -1,0 +1,110 @@
+{% if seo is defined %}
+    {%- block seo_title %}
+        {% if seo.title %}
+            <title>{{ seo.title|raw }} | {{ app.request.host }}</title>
+            <meta name="title" content="{{ seo.title|raw }}"/>
+            <meta name="distribution" content="global"/>
+            {% else %}
+                <title>{{ 'Blog de tecnología y otras cosas'|trans|raw}} | {{ app.request.host }}</title>
+            <meta name="title" content="{{ 'Blog de tecnología y otras cosas'|trans|raw}}"/>
+            <meta name="distribution" content="global"/>
+                
+        {% endif %}
+    {% endblock %}
+        
+    {%- block seo_description %}
+        {% if seo.description %}
+            <meta name="description" content="{{ seo.description|raw|slice(0, 120) ~ '...'}}"/>
+            {% else %}
+                <meta name="description" content="{{ 'Blog de tecnología y otras cosas'|trans|raw}}"/>
+        {% endif %}
+    {% endblock %}
+        
+    {%- block seo_keywords %}
+        {% if seo.keywords %}
+            <meta name="keywords" content="{{ seo.keywords|raw }}"/>
+        {% endif %}
+    {% endblock %}
+            
+    {%- block seo_date %}
+        {% if seo.date %}
+            <meta name="DC.date.issued" content="{{ seo.date|date('Y-m-d') }}"/>
+        {% endif %}
+    {% endblock %}
+            
+    {%- block seo_robots %}
+        {% if seo.robots %}
+            <meta name="robots" content="{{ seo.robots }}"/>
+        {% endif %}
+    {% endblock %}
+        
+    {%- block seo_rel_pagination %}
+        {% if seo.pagination is not null %}
+            {%- if seo.pagination.prev -%}
+                <link rel="prev" href="{{ seo.pagination.prev }}" />
+            {% endif %}
+            {%- if seo.pagination.next -%}
+                <link rel="next" href="{{ seo.pagination.next }}" />
+            {% endif %}
+        {%- endif %}
+    {% endblock %}
+                
+    {%- block seo_canonical %}
+        {% if seo.canonical %} 
+            <link rel="alternate" media="only screen and (max-width: 640px)" href="{{ seo.canonical }}" />
+{#            <link rel="alternate" hreflang="es" href="{{ seo.canonical }}" />#}
+{#            <link rel="alternate" hreflang="en" href="{{ seo.canonical('en') }}" />#}
+        {% endif %}
+    {% endblock %}
+        
+    {%- block seo_open_graph %}
+        {% if seo.openGraph %}
+            <!-- OPEN GRAPH -->
+            <meta property="og:title" content="{{ seo.title|raw }}" />
+            <meta property="og:type" content="{{ seo.openGraphType|default('website') }}" />
+            <meta property="og:url" content="{{ seo.canonical }}" />
+            {% if seo.image is not null %}
+            <meta property="og:image" content="{{ app.request.getSchemeAndHttpHost() ~ asset(seo.image) }}" />
+            {% else %}
+            <meta property="og:image" content="{{ app.request.getSchemeAndHttpHost() ~ asset('bundles/mrussofront/images/logo.png') }}" />
+            {% endif %}
+            <meta property="og:description" content="{{ seo.description|raw|slice(0, 120) ~ '...' }}" />
+            <meta property="og:locale" content="{{ app.request.getLocale() }}" />
+            <meta property="og:site_name" content="marco-russo.com" />
+        {% endif %}
+        {% if seo.article %}
+            <meta property="article:published_time" content="{{ seo.articleDatePublished|date('Ymdhis') }}" />
+            <meta property="article:modified_time" content="{{ seo.articleDateModified|date('c') }}" />
+                       {% if seo.articleSection is not empty %}
+                               <meta property="article:section" content="{{ seo.articleSection }}" />
+                       {% else %}
+                               <meta property="article:section" content="{{ current_media }}" />
+                       {% endif %}     
+            <meta property="article:tag" content="{{ seo.articleTag|raw }}" />
+        {% endif %}
+    {% endblock %}
+
+    {%- block seo_twitter_card %}
+        {% if seo.twitterCard %}
+            <!-- TWITTER CARDS --> 
+            <meta name="twitter:card" content="summary" />
+            {% if seo.twitterAccount is not empty %}
+            <meta name="twitter:site" content="{{ seo.twitterAccount }}" />
+            {% endif %}   
+            {% if seo.twitterCreator is not empty %}
+                       <meta name="twitter:creator" content="{{ seo.twitterCreator }}" />
+            {% endif %}     
+            {% if seo.twitterDomain is not empty %}
+                <meta name="twitter:domain" content="{{ seo.twitterDomain }}" />
+            {% endif %}
+            <meta name="twitter:url" content="{{ seo.canonical }}" />
+            <meta name="twitter:title" content="{{ seo.title|raw }}" >
+            <meta name="twitter:description" content="{{ seo.description|raw|slice(0, 120) ~ '...' }}" />
+            {% if seo.image is not null %}
+            <meta name="twitter:image" content="{{ app.request.getSchemeAndHttpHost() ~ asset(seo.image) }}" />
+            {% else %}
+            <meta name="twitter:image" content="{{ app.request.getSchemeAndHttpHost() ~ asset('bundles/mrussofront/images/logo.png') }}" />
+            {% endif %}
+        {% endif %}
+    {% endblock %}
+{% endif %}

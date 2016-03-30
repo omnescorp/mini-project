@@ -1,0 +1,7 @@
+# This file is auto-generated during the composer install
+parameters:
+    page.max: 10
+    page.range: 10
+    
+    language: [es,en]
+    

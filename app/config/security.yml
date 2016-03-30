@@ -1,11 +1,18 @@
 # To get started with security, check out the documentation:
 # http://symfony.com/doc/current/book/security.html
 security:
-
+    acl:
+        connection: default
+#        provider: acl_provider
     # http://symfony.com/doc/current/book/security.html#where-do-users-come-from-user-providers
     providers:
-        in_memory:
-            memory: ~
+        userproviders:
+            id: user_provider
+    encoders:
+#        Symfony\Component\Security\Core\User\User: plaintext
+        MRusso\LibBundle\Service\UserInterface:
+            id: user_md5_encoder
+#            algorithm: md5
 
     firewalls:
         # disables authentication for assets and the profiler, adapt it according to your needs
