@@ -7,7 +7,6 @@ use Symfony\Component\Security\Core\User\EquatableInterface;
 use MRusso\LibBundle\Service\DB;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 
-
 class Post extends DB {
 
     protected $entity = 'MRusso\LibBundle\Entity\Post';
@@ -24,6 +23,16 @@ class Post extends DB {
 //        echo $query->getQuery()->getSql();die;
 //	return $this->getOne($query);
         return $this->OrmPaginator($query);
+    }
+
+    public function findAndUpdate() {
+        if ($post = $this->find($this->request->get('id'))) {
+            $visto = $post->getPostView();
+            $post->setPostView(++$visto);
+            $this->em->persist($post);
+            $this->em->flush();
+            return $post;
+        }
     }
 
     public function create($post = null) {

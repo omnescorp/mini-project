@@ -21,8 +21,8 @@ class IndexController extends Controller {
         ));
     }
 
-    public function viewAction(Request $request) {
-        if (!$post = $this->get('post')->find($request->get('id'))) {
+    public function viewAction() {
+        if (!$post = $this->get('post')->findAndUpdate()) {
             throw new NotFoundHttpException('No post');
         }
         return $this->render('MRussoMiniProjectBundle:index:view.html.twig', array(

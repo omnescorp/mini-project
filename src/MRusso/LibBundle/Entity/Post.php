@@ -49,6 +49,13 @@ class Post
      */
     private $postStatus;
 
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="post_view", type="integer", nullable=false)
+     */
+    private $postView = '0';
+
 
 
     /**
@@ -155,5 +162,29 @@ class Post
     public function getPostStatus()
     {
         return $this->postStatus;
+    }
+
+    /**
+     * Set postView
+     *
+     * @param integer $postView
+     *
+     * @return Post
+     */
+    public function setPostView($postView)
+    {
+        $this->postView = $postView;
+
+        return $this;
+    }
+
+    /**
+     * Get postView
+     *
+     * @return integer
+     */
+    public function getPostView()
+    {
+        return $this->postView;
     }
 }
