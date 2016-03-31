@@ -5,6 +5,8 @@ namespace MRusso\MiniProjectBundle\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
+use Symfony\Component\HttpFoundation\RedirectResponse;
+
 
 class IndexController extends Controller {
 
@@ -15,7 +17,8 @@ class IndexController extends Controller {
             } else {
                 $this->addFlash('error', 'An error occurred');
             }
-            return $this->redirectToRoute('_homepage');
+//            return $this->redirectToRoute('_homepage');
+//            return new RedirectResponse($this->generateUrl('_homepage'));
         }
 
         return $this->render('MRussoMiniProjectBundle:index:index.html.twig', array(
