@@ -1,12 +1,12 @@
 <div class="panel panel-primary">
     <div class="panel-heading">
         <h3 class="panel-title">
-            {{translate_ddbb(post.getPostTitle())}}
+            {{post.getPostTitle()|raw}}
         </h3>
     </div>
 
     <div class="panel-body">
-        {{translate_ddbb(post.getPostImage())}}
+        {{post.getPostImage()}}
         {#        {% include 'MRussoCmsBundle::Front/templates/'~post.getPostTemplate().getPostTemplateFile()~'.html.twig' %}#}
     </div>
     <div class='panel-footer'>

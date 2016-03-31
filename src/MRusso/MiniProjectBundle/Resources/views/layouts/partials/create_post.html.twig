@@ -1,0 +1,18 @@
+{#<form id="formUpload" method="post" action="{{path('MRussoMiniProjectBundle:Index:upload')}}" enctype="multipart/form-data">#}
+<div class='row well well-sm '>
+<form id="formUpload" method="post"  enctype="multipart/form-data">
+    <div class="form-group">
+        <label for="title">Title</label>
+        <input type="text" class="form-control" id="title" placeholder="Title">
+    </div>
+    <div class="form-group">
+        <label for="media_file">Select a file</label>
+        <input type="file" id="media_file" name="media_file">
+    </div>
+    <div class="form-group">
+        {#        <input type="button" onclick='enviar()' class="btn btn-primary" value="{{'subir'|trans}}">#}
+        <button type="submit" class="btn btn-default">Submit</button>
+    </div>
+
+</form>
+</div>
