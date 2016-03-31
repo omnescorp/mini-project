@@ -118,7 +118,7 @@ class DB implements DomainObjectInterface {
         );
         //Seteamos el paginador en el twig.
         $this->container->get('paginator')->setPaginator($this->paginator->view);
-        $this->container->get('seo')->setPagination($this->paginator->view);
+//        $this->container->get('seo')->setPagination($this->paginator->view);
         return $this->paginator;
     }
 

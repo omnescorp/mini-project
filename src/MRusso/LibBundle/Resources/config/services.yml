@@ -11,47 +11,6 @@ services:
         - [ setRequest, [ '@request_stack'] ]
         - [ setContainer, ['@service_container']]
 
-    user_provider:
-        class: MRusso\LibBundle\Service\UserProvider
-        calls:
-#        - [ setEntityManager, [ '@doctrine.orm.entity_manager' ] ]
-#        - [ setMongoEntityManager, [ '@doctrine_mongodb' ] ]
-#        - [ setRequest, [ '@request_stack'] ]
-        - [ setContainer, ['@service_container']]
-#    user_interface: Cómo hago un new de esta clase, no es necesario declararla como servicio
-#        class: MRusso\LibBundle\Service\UserInterface
-    acl_loader:
-        class: MRusso\LibBundle\Service\AclLoader
-        calls:
-            - [setContainer , ['@service_container']]
-        tags:
-            - { name: kernel.event_listener, event: kernel.request}
-            #- { name: routing.loader }
-
-    acl_provider:
-        class: MRusso\LibBundle\Service\AclProvider
-        arguments: ['@database_connection','@security.acl.permission_granting_strategy',['class_table_name']]
-#        calls:
-#        - [ setEntityManager, [ '@doctrine.orm.entity_manager' ] ]
-#        - [ setMongoEntityManager, [ '@doctrine_mongodb' ] ]
-#        - [ setRequest, [ '@request_stack'] ]
-#        - [ setContainer, ['@service_container']]
-#    user_interface: Cómo hago un new de esta clase, no es necesario declararla como servicio
-#        class: MRusso\LibBundle\Service\UserInterface
-    route_provider:
-        class: MRusso\LibBundle\Service\RouteProvider
-        calls:
-            - [setContainer , ['@service_container']]
-            - [setTranslator, ['@translator']]
-        tags:
-            - { name: routing.loader }
-    route:
-        class: MRusso\LibBundle\Service\Route
-        arguments: [ '@own.router.parent','@translator','%locale%']
-
-    user_md5_encoder:
-        class: MRusso\LibBundle\Service\CustomMd5PasswordEncoder
-     #Control de errores
     mrusso.kernel.exception_listener:
         class: MRusso\LibBundle\Service\ExceptionListener
         arguments: ['@templating','@service_container']
@@ -73,50 +32,15 @@ services:
     acl:
         class: MRusso\LibBundle\Model\Acl
         calls:
-#        - [ setEntityManager, [ '@doctrine.orm.entity_manager' ] ]
-#        - [ setMongoEntityManager, [ '@doctrine_mongodb' ] ]
         - [ setRequest, [ '@request_stack'] ]
         - [ setContainer, ['@service_container']]
 # Twig Extensions
-    translate_ddbb:
-        class: MRusso\LibBundle\Twig\TranslateDDBB
-        calls:
-#        - [ setEntityManager, [ '@doctrine.orm.entity_manager' ] ]
-#        - [ setMongoEntityManager, [ '@doctrine_mongodb' ] ]
-        - [ setRequest, [ '@request_stack'] ]
-        - [ setContainer, ['@service_container']]
-        tags:
-            - { name: twig.extension }
     paginator:
         class: MRusso\LibBundle\Twig\Paginator
         arguments: [ "@router","@request_stack","@service_container"]
         tags:
             - { name: twig.extension }
-    right_side:
-        class: MRusso\LibBundle\Twig\RightSide
-        arguments: [ "@router", "@service_container"]
-        calls:
-            - [ setRequest, [ '@request_stack'] ]
-        tags:
-            - { name: twig.extension}
-    seo:
-        class: MRusso\LibBundle\Twig\Seo
-        arguments: ["@router"]
-        calls:
-#            - [setRequest, ["@?request="]]
-            - [ setRequest, [ '@request_stack'] ]
-        tags:
-            - { name: twig.extension }
-    menu:
-        class: MRusso\LibBundle\Twig\Menu
-        arguments: ["@service_container","@request_stack"]
-        tags:
-            - { name: twig.extension}
-    cloud:
-        class: MRusso\LibBundle\Twig\Cloud
-        arguments: [ "@router", "@service_container"]
-        tags:
-            - { name: twig.extension}
+#            - { name: twig.extension}
     params:
         class: MRusso\LibBundle\Twig\Params
         arguments: ["@service_container"]
