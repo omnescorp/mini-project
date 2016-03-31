@@ -1,3 +1,6 @@
 _homepage:
     path:     /{page}
     defaults: { _controller: MRussoMiniProjectBundle:Index:index,page:1 }
+view_post:
+    path:     /post/{id}
+    defaults: { _controller: MRussoMiniProjectBundle:Index:view }
