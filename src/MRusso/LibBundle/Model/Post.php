@@ -33,6 +33,7 @@ class Post extends DB {
             $this->em->flush();
             return $post;
         }
+        return false;
     }
 
     public function create($post = null) {

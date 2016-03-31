@@ -1,21 +1,13 @@
-{% extends 'MRussoFrontBundle::layouts/layout.html.twig' %}
+{% extends 'MRussoMiniProjectBundle::layouts/layout.html.twig' %}
 {% block body %}
     <div class="row">
         <div class="col-md-2"></div>
         <div class="col-md-8">
-            {{'No he podido encontrar lo que estás buscando'|trans}}
+            {{'I could not find what you are looking for'|trans}}
 {#            {{message|trans}}#}
             <br />
-            <img class="img-responsive" src="{{ app.request.getSchemeAndHttpHost() ~ asset('bundles/mrussofront/images/error-404.jpg') }}">
-            <form class='form' method='POST' action='{{ path('listado') }}'>
-                <div class="form-group">
-                    <input type='text' name='palabra' class="form-control" placeholder='{{'¿Te puedo ayudar en algo?'|trans}}' />
-                </div>
-                <div class="form-group">
-                    <button type='button' class='btn btn-primary' onclick="window.history.back();">{% trans %}Volver{% endtrans %}</button>
-                    <input type='submit' class="btn btn-primary" value='{{'Buscar'|trans}}' />
-                </div>
-            </form>
+            <img class="img-responsive" src="{{ app.request.getSchemeAndHttpHost() ~ asset('bundles/mrussominiproject/images/error-404.jpg') }}">
+            
         </div>
         <div class="col-md-2"></div>
     </div>

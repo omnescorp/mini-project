@@ -7,6 +7,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 
+
 class IndexController extends Controller {
 
     public function indexAction(Request $request) {

@@ -56,7 +56,7 @@ class ExceptionListener {
     private function getErrorPageData($event, $error_code) {
 
         return $this->templating->render(
-                        'MRussoFrontBundle::layouts/partials/error' . $error_code . '.html.twig',array('message'=>$event->getException()->getMessage()));
+                        'MRussoMiniProjectBundle::layouts/partials/error' . $error_code . '.html.twig',array('message'=>$event->getException()->getMessage()));
     }
 
 }

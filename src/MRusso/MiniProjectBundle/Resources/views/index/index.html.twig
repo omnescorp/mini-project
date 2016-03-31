@@ -1,5 +1,6 @@
 {% extends 'MRussoMiniProjectBundle::layouts/layout.html.twig' %}
 {% block body %}
+    {% include('MRussoMiniProjectBundle::layouts/partials/create_post.html.twig') %}
     {% for post in posts %}
         {% include 'MRussoMiniProjectBundle::index/partials/each_post.html.twig' %}
     {% endfor %}
