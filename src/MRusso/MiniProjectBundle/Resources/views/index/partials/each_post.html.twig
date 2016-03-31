@@ -6,7 +6,7 @@
     </div>
 
     <div class="panel-body">
-        {{post.getPostImage()}}
+        <img src='{{asset(post.getPostImage())}}' />
         {#        {% include 'MRussoCmsBundle::Front/templates/'~post.getPostTemplate().getPostTemplateFile()~'.html.twig' %}#}
     </div>
     <div class='panel-footer'>

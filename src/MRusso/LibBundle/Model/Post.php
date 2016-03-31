@@ -18,7 +18,7 @@ class Post extends DB {
         $query
                 ->select('post')
                 ->from($this->entity, 'post')
-                ->where('post.postStatus = 0')
+//                ->where('post.postStatus = 0')
                 ->orderBy('post.postDate', 'desc')
         ;
 //        echo $query->getQuery()->getSql();die;

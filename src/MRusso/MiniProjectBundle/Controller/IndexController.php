@@ -11,9 +11,9 @@ class IndexController extends Controller {
         if ($request->getMethod() == 'POST' && $request->files->get('media_file')) {
             $this->get('post')->create();
             $this->addFlash('success', 'Post Created');
-//            return $this->redirectToRoute('MRussoGalerieBundle:Index:index');
+            return $this->redirectToRoute('_homepage');
         }
-        
+
         return $this->render('MRussoMiniProjectBundle:index:index.html.twig', array(
                     'posts' => $this->get('post')->getAllFront(),
         ));
