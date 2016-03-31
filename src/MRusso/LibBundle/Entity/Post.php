@@ -22,13 +22,6 @@ class Post
     private $id;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="post_author", type="string", length=255, nullable=false)
-     */
-    private $postAuthor;
-
-    /**
      * @var \DateTime
      *
      * @ORM\Column(name="post_date", type="datetime", nullable=false)
@@ -41,6 +34,13 @@ class Post
      * @ORM\Column(name="post_title", type="text", length=65535, nullable=false)
      */
     private $postTitle;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="post_image", type="string", length=255, nullable=false)
+     */
+    private $postImage;
 
     /**
      * @var string
@@ -83,30 +83,6 @@ class Post
     public function getId()
     {
         return $this->id;
-    }
-
-    /**
-     * Set postAuthor
-     *
-     * @param string $postAuthor
-     *
-     * @return Post
-     */
-    public function setPostAuthor($postAuthor)
-    {
-        $this->postAuthor = $postAuthor;
-
-        return $this;
-    }
-
-    /**
-     * Get postAuthor
-     *
-     * @return string
-     */
-    public function getPostAuthor()
-    {
-        return $this->postAuthor;
     }
 
     /**
@@ -155,6 +131,30 @@ class Post
     public function getPostTitle()
     {
         return $this->postTitle;
+    }
+
+    /**
+     * Set postImage
+     *
+     * @param string $postImage
+     *
+     * @return Post
+     */
+    public function setPostImage($postImage)
+    {
+        $this->postImage = $postImage;
+
+        return $this;
+    }
+
+    /**
+     * Get postImage
+     *
+     * @return string
+     */
+    public function getPostImage()
+    {
+        return $this->postImage;
     }
 
     /**

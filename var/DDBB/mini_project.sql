@@ -226,9 +226,9 @@ DROP TABLE IF EXISTS `post`;
 CREATE TABLE `post` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `post_user_id` int(11) NOT NULL,
-  `post_author` varchar(255) NOT NULL,
   `post_date` datetime NOT NULL,
   `post_title` text NOT NULL,
+  `post_image` varchar(255) NOT NULL,
   `post_slug` varchar(255) NOT NULL,
   `post_slug_short` varchar(255) NOT NULL,
   `post_status` int(11) NOT NULL,
@@ -385,4 +385,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-03-31  9:35:37
+-- Dump completed on 2016-03-31  9:37:53
