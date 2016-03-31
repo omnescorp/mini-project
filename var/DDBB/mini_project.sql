@@ -226,14 +226,14 @@ DROP TABLE IF EXISTS `post`;
 CREATE TABLE `post` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `post_user_id` int(11) NOT NULL,
-  `post_date` datetime NOT NULL,
-  `post_title` text NOT NULL,
+  `post_date` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `post_title` varchar(255) NOT NULL,
   `post_image` varchar(255) NOT NULL,
   `post_status` int(11) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `post_user_id` (`post_user_id`),
   CONSTRAINT `post_ibfk_1` FOREIGN KEY (`post_user_id`) REFERENCES `user` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=20530 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=20531 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -242,7 +242,6 @@ CREATE TABLE `post` (
 
 LOCK TABLES `post` WRITE;
 /*!40000 ALTER TABLE `post` DISABLE KEYS */;
-INSERT INTO `post` (`id`, `post_user_id`, `post_date`, `post_title`, `post_image`, `post_status`) VALUES (20529,1,'0000-00-00 00:00:00','Titulo','imagen',0);
 /*!40000 ALTER TABLE `post` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -384,4 +383,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-03-31  9:48:03
+-- Dump completed on 2016-03-31  9:51:13

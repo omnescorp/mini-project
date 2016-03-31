@@ -26,12 +26,12 @@ class Post
      *
      * @ORM\Column(name="post_date", type="datetime", nullable=false)
      */
-    private $postDate;
+    private $postDate = 'CURRENT_TIMESTAMP';
 
     /**
      * @var string
      *
-     * @ORM\Column(name="post_title", type="text", length=65535, nullable=false)
+     * @ORM\Column(name="post_title", type="string", length=255, nullable=false)
      */
     private $postTitle;
 

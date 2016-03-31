@@ -1,29 +1,20 @@
 <div class="panel panel-primary">
     <div class="panel-heading">
         <h3 class="panel-title">
-            {#{% if translate_ddbb(post.getPostSlug()) is not empty %}
-                {% set ruta = path('todos_los_post',{nombre:translate_ddbb(post.getPostSlug())}) %}
-            {% else %}
-                {% set ruta = path('todos_los_post',{nombre:translate_ddbb(post.getPostTitle()),id:post.getId()}) %}
-            {% endif %}
-
-            <a href='{{ruta}}' >
-                {{translate_ddbb(post.getPostTitle())}}
-            </a>#}
-            | 
-            {{post.getPostDate().format('d/m/Y')}}
+            {{translate_ddbb(post.getPostTitle())}}
         </h3>
     </div>
 
     <div class="panel-body">
-{#        {% include 'MRussoCmsBundle::Front/templates/'~post.getPostTemplate().getPostTemplateFile()~'.html.twig' %}#}
+        {{translate_ddbb(post.getPostImage())}}
+        {#        {% include 'MRussoCmsBundle::Front/templates/'~post.getPostTemplate().getPostTemplateFile()~'.html.twig' %}#}
     </div>
     <div class='panel-footer'>
         <div class='row'>
             <div class='col-xs-12'>
-{#                {{ socialButton({url:url('url_short',{nombre:post.getPostSlugShort()}), message:translate_ddbb(post.getPostTitle()),locale:'es',text:'esto es un texto',via:'trinario',tag:''}) }}#}
+                {{post.getPostDate().format('d/m/Y')}}
             </div>
-            
+
         </div>
     </div>
 </div>

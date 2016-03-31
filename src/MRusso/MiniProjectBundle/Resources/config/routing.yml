@@ -1,3 +1,3 @@
 _homepage:
-    path:     /
-    defaults: { _controller: MRussoMiniProjectBundle:Index:index }
+    path:     /{page}
+    defaults: { _controller: MRussoMiniProjectBundle:Index:index,page:1 }
