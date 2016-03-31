@@ -2,6 +2,9 @@
     <div class="panel-heading">
         <h3 class="panel-title">
             <a href='{{path('view_post',{'id':post.getId()})}}'>View: {{post.getPostTitle()|raw}}</a>
+            <div class='pull-right'>
+                {{view(post.getId())}}
+            </div>
         </h3>
     </div>
 

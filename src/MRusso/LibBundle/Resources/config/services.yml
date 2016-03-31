@@ -46,3 +46,8 @@ services:
         arguments: ["@service_container"]
         tags:
             - { name: twig.extension }
+    counter:
+        class: MRusso\LibBundle\Twig\Counter
+        arguments: ["@service_container"]
+        tags:
+            - { name: twig.extension }

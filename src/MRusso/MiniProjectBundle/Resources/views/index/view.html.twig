@@ -4,7 +4,11 @@
         <div class="panel-heading">
             <h3 class="panel-title">
                 {{(post.getPostTitle())|raw}}
+                <div class='pull-right'>
+            {{view(post.getId())}}
+            </div>
             </h3>
+            
         </div>
 
         <div class="panel-body">

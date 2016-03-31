@@ -17,11 +17,8 @@ class Post extends DB {
         $query
                 ->select('post')
                 ->from($this->entity, 'post')
-//                ->where('post.postStatus = 0')
                 ->orderBy('post.postDate', 'desc')
         ;
-//        echo $query->getQuery()->getSql();die;
-//	return $this->getOne($query);
         return $this->OrmPaginator($query);
     }
 
@@ -36,21 +33,28 @@ class Post extends DB {
         return false;
     }
 
+    public function getCountAll() {
+        $query = 'select count(*) as total from post;';
+        return $this->noCache()->execute($query);
+    }
+    public function getCountView($post_id = null) {
+        $query = 'select sum(post.post_view) as total from post ';
+        if($post_id){
+            $query .= ' where post.id = '.$post_id;
+        }
+        return $this->noCache()->execute($query);
+    }
+
     public function create($post = null) {
         $date = new \DateTime("now");
-//        echo get_class($date);die;
 
         if (!$post) {
             $post = new $this->entity;
         }
         $post
                 ->setPostTitle($this->request->get('post_title'))
-//                ->setPostImage($this->request->get('post_title'))
                 ->setPostDate($date)
                 ->setPostStatus(1)
-//                ->setPostUser($this->container->get('mrusso.user')->getUser())
-
-
         ;
 
         if ($target = $this->upload()) {
@@ -63,7 +67,16 @@ class Post extends DB {
     }
 
     private function setFile(UploadedFile $file = null) {
+        $types = array(
+            'image/jpeg',
+            'image/png',
+            'image/gif'
+            );
         $this->file = $file;
+        if(!in_array($file->getClientMimeType(),$types)){
+            return false;
+        }
+        
         // check if we have an old image path
         if (isset($this->path)) {
             // store the old name to delete after the update
@@ -72,6 +85,7 @@ class Post extends DB {
         } else {
             $this->path = $this->file->getClientOriginalName();
         }
+        return true;
     }
 
     public function getFile() {
@@ -80,8 +94,8 @@ class Post extends DB {
 
     private function upload() {
         if ($file = $this->request->files->get('media_file')) {
-            $this->setFile($file);
-            if ($target = $this->getFile()->move('bundles/mrussominiproject/img/', $this->path)) {
+            
+            if ($this->setFile($file) && $target = $this->getFile()->move('bundles/mrussominiproject/img/', $this->path)) {
                 return $target;
             }
             return false;
