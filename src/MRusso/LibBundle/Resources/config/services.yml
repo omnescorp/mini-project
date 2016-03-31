@@ -67,6 +67,9 @@ services:
     role:
         class: MRusso\LibBundle\Model\Role
         parent: db
+    post:
+        class: MRusso\LibBundle\Model\Post
+        parent: db
     acl:
         class: MRusso\LibBundle\Model\Acl
         calls:
