@@ -1,0 +1,21 @@
+body{
+    background-color: #FFF;
+}
+
+.in{
+    color: #000;
+}
+
+ul li.active a{
+    text-decoration: underline;
+}
+
+.panel-body img{
+
+    display: block;
+    max-width: 100%;
+    height: auto;
+    /*border-radius: 6px;*/
+
+}
+<style>.eldiv{text-align: center;}.tag1{font-size:14px;}.tag2{font-size:15px;}.tag3{font-size:16px;font-weight:bold;}.tag4{font-size:17px;font-weight:bold;}.tag5{font-size:18px;font-weight:bold;}.tag6{font-size:19px;font-weight:bold;}.tag7{font-size:20px;font-weight:bold;}.tag8{font-size:21px;font-weight:bold;}.tag9{font-size:22px;font-weight:bold;}.tag10{font-size:23px;font-weight:bold;}.tag11{font-size:24px;font-weight:bold;}.tag12{font-size:25px;font-weight:bold;}.tag13{font-size:26px;font-weight:bold;}.tag14{font-size:27px;font-weight:bold;}.tag15{font-size:28px;font-weight:bold;}.tag16{font-size:29px;font-weight:bold;}.tag17{font-size:30px;font-weight:bold;}.tag18{font-size:31px;font-weight:bold;}.tag19{font-size:32px;font-weight:bold;}.tag20{font-size:33px;font-weight:bold;}</style>

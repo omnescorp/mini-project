@@ -1,0 +1,4 @@
+{% extends 'MRussoFrontBundle::layouts/layout.html.twig' %}
+{% block body %}
+    <img class="img-responsive" src="{{ app.request.getSchemeAndHttpHost() ~ asset('bundles/mrussofront/images/error-500.jpg') }}" />
+{% endblock %}

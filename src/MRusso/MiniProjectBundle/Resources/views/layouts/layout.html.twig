@@ -1,0 +1,6 @@
+{% if app.request.get('popup') %}
+    {% set layout = 'layout_modal' %}
+{% else %}
+    {% set layout = 'layout_front' %}
+{% endif %}
+{% extends 'MRussoMiniProjectBundle::layouts/'~layout~'.html.twig' %}
