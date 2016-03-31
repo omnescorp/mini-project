@@ -1,3 +1,6 @@
+export_post:
+    path:     /export
+    defaults: { _controller: MRussoMiniProjectBundle:Index:exportCsv}
 _homepage:
     path:     /{page}
     defaults: { _controller: MRussoMiniProjectBundle:Index:index,page:1 }

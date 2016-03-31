@@ -6,7 +6,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Symfony\Component\HttpFoundation\RedirectResponse;
-
+use Symfony\Component\HttpFoundation\Response;
 
 class IndexController extends Controller {
 
@@ -33,6 +33,40 @@ class IndexController extends Controller {
         return $this->render('MRussoMiniProjectBundle:index:view.html.twig', array(
                     'post' => $post
         ));
+    }
+
+    public function exportCsvAction() {
+        $filename = 'post.csv';
+
+        $response = new Response();
+        $response->headers->set('Content-Type', 'text/csv');
+        $response->headers->set('Content-Disposition', 'attachment; filename="' . $filename . '"');
+        $response->headers->set('Accept-Ranges', 'bytes');
+
+        $fh = @fopen('php://output', 'w');
+
+        $delimiter = ';';
+        $csv_headers = array();
+        $array_fields = array();
+        $csv_headers[] = "Id";
+        $csv_headers[] = "Title";
+        $csv_headers[] = "Image";
+
+        fputcsv($fh, $csv_headers, $delimiter);
+
+        foreach ($this->get('post')->findBy(array(), array('postDate' => 'DESC')) as $post) {
+//            print_R($post);die;
+            $data = array();
+            $data[] = $post->getId();
+            $data[] = utf8_decode($post->getPostTitle());
+            $data[] = utf8_decode($post->getPostImage());
+
+            fputcsv($fh, $data, $delimiter);
+        }
+
+        fclose($fh);
+
+        return $response;
     }
 
 }
