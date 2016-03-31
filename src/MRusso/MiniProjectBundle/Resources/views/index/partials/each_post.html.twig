@@ -1,8 +1,7 @@
 <div class="panel panel-primary">
     <div class="panel-heading">
         <h3 class="panel-title">
-            {{post.getPostTitle()|raw}}
-            <a href='{{path('view_post',{'id':post.getId()})}}'>View</a>
+            <a href='{{path('view_post',{'id':post.getId()})}}'>View: {{post.getPostTitle()|raw}}</a>
         </h3>
     </div>
 
