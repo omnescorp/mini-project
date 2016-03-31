@@ -225,15 +225,12 @@ DROP TABLE IF EXISTS `post`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `post` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `post_user_id` int(11) NOT NULL,
   `post_date` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `post_title` varchar(255) NOT NULL,
   `post_image` varchar(255) NOT NULL,
   `post_status` int(11) NOT NULL,
-  PRIMARY KEY (`id`),
-  KEY `post_user_id` (`post_user_id`),
-  CONSTRAINT `post_ibfk_1` FOREIGN KEY (`post_user_id`) REFERENCES `user` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=20531 DEFAULT CHARSET=latin1;
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=20555 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -242,6 +239,28 @@ CREATE TABLE `post` (
 
 LOCK TABLES `post` WRITE;
 /*!40000 ALTER TABLE `post` DISABLE KEYS */;
+INSERT INTO `post` (`id`, `post_date`, `post_title`, `post_image`, `post_status`) VALUES (20533,'2016-03-31 09:51:40','título 1','imagen',0);
+INSERT INTO `post` (`id`, `post_date`, `post_title`, `post_image`, `post_status`) VALUES (20534,'2016-03-31 09:51:41','Tñoitulo 2','otra imagen',0);
+INSERT INTO `post` (`id`, `post_date`, `post_title`, `post_image`, `post_status`) VALUES (20535,'2016-03-31 09:51:40','título 1','imagen',0);
+INSERT INTO `post` (`id`, `post_date`, `post_title`, `post_image`, `post_status`) VALUES (20536,'2016-03-31 09:51:41','Tñoitulo 2','otra imagen',0);
+INSERT INTO `post` (`id`, `post_date`, `post_title`, `post_image`, `post_status`) VALUES (20537,'2016-03-31 09:51:40','título 1','imagen',0);
+INSERT INTO `post` (`id`, `post_date`, `post_title`, `post_image`, `post_status`) VALUES (20538,'2016-03-31 09:51:41','Tñoitulo 2','otra imagen',0);
+INSERT INTO `post` (`id`, `post_date`, `post_title`, `post_image`, `post_status`) VALUES (20539,'2016-03-31 09:51:40','título 1','imagen',0);
+INSERT INTO `post` (`id`, `post_date`, `post_title`, `post_image`, `post_status`) VALUES (20540,'2016-03-31 09:51:41','Tñoitulo 2','otra imagen',0);
+INSERT INTO `post` (`id`, `post_date`, `post_title`, `post_image`, `post_status`) VALUES (20541,'2016-03-31 09:51:40','título 1','imagen',0);
+INSERT INTO `post` (`id`, `post_date`, `post_title`, `post_image`, `post_status`) VALUES (20542,'2016-03-31 09:51:41','Tñoitulo 2','otra imagen',0);
+INSERT INTO `post` (`id`, `post_date`, `post_title`, `post_image`, `post_status`) VALUES (20543,'2016-03-31 09:51:40','título 1','imagen',0);
+INSERT INTO `post` (`id`, `post_date`, `post_title`, `post_image`, `post_status`) VALUES (20544,'2016-03-31 09:51:41','Tñoitulo 2','otra imagen',0);
+INSERT INTO `post` (`id`, `post_date`, `post_title`, `post_image`, `post_status`) VALUES (20545,'2016-03-31 09:51:40','título 1','imagen',0);
+INSERT INTO `post` (`id`, `post_date`, `post_title`, `post_image`, `post_status`) VALUES (20546,'2016-03-31 09:51:41','Tñoitulo 2','otra imagen',0);
+INSERT INTO `post` (`id`, `post_date`, `post_title`, `post_image`, `post_status`) VALUES (20547,'2016-03-31 09:51:40','título 1','imagen',0);
+INSERT INTO `post` (`id`, `post_date`, `post_title`, `post_image`, `post_status`) VALUES (20548,'2016-03-31 09:51:41','Tñoitulo 2','otra imagen',0);
+INSERT INTO `post` (`id`, `post_date`, `post_title`, `post_image`, `post_status`) VALUES (20549,'2016-03-31 09:51:40','título 1','imagen',0);
+INSERT INTO `post` (`id`, `post_date`, `post_title`, `post_image`, `post_status`) VALUES (20550,'2016-03-31 09:51:41','Tñoitulo 2','otra imagen',0);
+INSERT INTO `post` (`id`, `post_date`, `post_title`, `post_image`, `post_status`) VALUES (20551,'2016-03-31 09:51:40','título 1','imagen',0);
+INSERT INTO `post` (`id`, `post_date`, `post_title`, `post_image`, `post_status`) VALUES (20552,'2016-03-31 09:51:41','Tñoitulo 2','otra imagen',0);
+INSERT INTO `post` (`id`, `post_date`, `post_title`, `post_image`, `post_status`) VALUES (20553,'2016-03-31 10:01:59','aaa','aaaa',0);
+INSERT INTO `post` (`id`, `post_date`, `post_title`, `post_image`, `post_status`) VALUES (20554,'2016-03-31 10:01:59','333','333',0);
 /*!40000 ALTER TABLE `post` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -383,4 +402,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-03-31  9:51:13
+-- Dump completed on 2016-03-31 10:44:30
