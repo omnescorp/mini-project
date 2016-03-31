@@ -43,20 +43,6 @@ class Post
     private $postImage;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="post_slug", type="string", length=255, nullable=false)
-     */
-    private $postSlug;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="post_slug_short", type="string", length=255, nullable=false)
-     */
-    private $postSlugShort;
-
-    /**
      * @var integer
      *
      * @ORM\Column(name="post_status", type="integer", nullable=false)
@@ -155,54 +141,6 @@ class Post
     public function getPostImage()
     {
         return $this->postImage;
-    }
-
-    /**
-     * Set postSlug
-     *
-     * @param string $postSlug
-     *
-     * @return Post
-     */
-    public function setPostSlug($postSlug)
-    {
-        $this->postSlug = $postSlug;
-
-        return $this;
-    }
-
-    /**
-     * Get postSlug
-     *
-     * @return string
-     */
-    public function getPostSlug()
-    {
-        return $this->postSlug;
-    }
-
-    /**
-     * Set postSlugShort
-     *
-     * @param string $postSlugShort
-     *
-     * @return Post
-     */
-    public function setPostSlugShort($postSlugShort)
-    {
-        $this->postSlugShort = $postSlugShort;
-
-        return $this;
-    }
-
-    /**
-     * Get postSlugShort
-     *
-     * @return string
-     */
-    public function getPostSlugShort()
-    {
-        return $this->postSlugShort;
     }
 
     /**
